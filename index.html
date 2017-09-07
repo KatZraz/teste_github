@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="./kateryna_css/main.css">
   <meta charset="utf-8"/>
 </head>
 <body>
-  <h1> Site Kateryna </h1>
-  <button> Task </button>
-  <script src="jquery-3.2.1.js"></script>
-  <script src="showdown.js"></script>
-  <script>
-    $("button").click(function(){
-      $.get("super_importante.md",function (data){
-        var conversor = new showdown.Converter(), data, html = conversor.makeHtml(data);
-        console.log("Olá\n" ,html);
+  <script src="./js/lib/jquery-3.2.1.js"></script>
+  <script src="./js/lib/showdown.js"></script>
+  <script src="./js/lib/accordion-menu.js"></script>
+  <header>
+    <div id="menus">
+            <h3><center>Site Kateryna</center></h3>
+            <button id="task">Tarefas</button>
+            <button id="menu">Menu</button>
+    </div>
+    <div >
+      <a id="amenuLink" href="./html/amenu-source.html">Menu</a>
+    </div>
+</header>
 
-        $("body").html(html);
-    });
-  }); </script>
+  <!--Funções-->
+  <script>
+      $("#task").click(function(){
+      $.get("./markdown/super_importante.md",function (data){
+        var conversor = new showdown.Converter(), data, html = conversor.makeHtml(data);
+        $("#menus").append(html);
+        });
+      });
+  </script>
+  <script> function loadFiles(file){
+    $.get(file,function(data){
+      var conversor = new showdown.Converter(), data, html = conversor.makeHtml(data);
+      $("body").html(html);
+      });
+    }
+  </script>
+  <script>
+          $("#menu").click(function(){
+                showMenu();
+          })
+  </script>
+  <script> function showMenu(){
+    $("#accordion").toggleClass("showMenu");
+  	$("#menu").toggleClass("showMenu");
+  }
+  </script>
 </body>
 </html>

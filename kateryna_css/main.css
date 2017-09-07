@@ -1,0 +1,54 @@
+@import url("font-awesome.min.css");
+
+/*header {dislay: block;}
+*/
+header {
+  height: 44px;
+  background-color: #29615D;
+  display: inline-block;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+h3 {
+  color:white;
+}
+
+#accordion {
+            height:150px;
+            box-shadow:8px 0 30px rgba(0,0,0,0.5);
+            position:fixed;
+            display:run-in;
+            top:100px;
+            width:150px;
+            left:-100%;
+            transition:left .3s ease-out;
+
+
+          }
+#accordion.showMenu {
+          left:0;
+          transition:left .3s ease-out
+          background-color:#666;
+          }
+#accordion a {
+              color:#666;
+              display:block;
+              line-height:3em;
+              text-decoration:none;
+              text-indent:1.2em;
+              transition:color .3s background-color .3s ease-in
+            }
+
+button {
+  background-color: white;
+
+}
+.resizable {
+  resize: both;
+  overflow:auto;
+}
